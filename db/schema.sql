@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS PO_numbers_db;
+
+CREATE DATABASE PO_numbers_db;
