@@ -1,5 +1,5 @@
 {
-  "name": "PO-number",
+  "name": "ponumber",
   "version": "1.0.0",
   "description": "To find and and get PO numbers",
   "main": "index.js",
