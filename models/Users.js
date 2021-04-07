@@ -1,34 +1,32 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
-class PO extends Model{}
+class Users extends Model{}
 
-PO.init(
+Users.init(
     {
-        poNumber:{
-            type: DataTypes.INTEGER,
+        password:{
+            type: DataTypes.STRING,
             allowNull: false,
-            primaryKey: true,
             validate:{
-                len: [5]
+                len:[1]
             }
         },
-        company: {
+        first_name:{
             type: DataTypes.STRING,
             allowNull: false,
             validate:{
                 len: [1]
             }
         }
-
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'po'
+        modelName: 'users'
     }
 );
 
-module.exports = PO;
+module.exports = Users;

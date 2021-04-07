@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { PO } = require('../../models');
+const { PO, Users } = require('../../models');
 
 // GET /api/PO numbers
 router.get('/',(req,res) => {
