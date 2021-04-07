@@ -1,3 +1,4 @@
 const PO = require('./PO');
+const Users = require('./Users');
 
-module.exports = { PO };
+module.exports = { PO, Users };

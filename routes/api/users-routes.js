@@ -14,7 +14,7 @@ router.get('/',(req,res) => {
 
 // POST /api/PO numbers  <-- This is just get the data in
 router.post('/', (req,res) => {
-    PO.create({
+    Users.create({
         password: req.body.password,
         first_name: req.body.first_name
     })
