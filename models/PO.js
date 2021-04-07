@@ -27,3 +27,5 @@ PO.init(
         modelName: 'po'
     }
 );
+
+module.exports = PO;
