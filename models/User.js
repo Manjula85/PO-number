@@ -13,17 +13,24 @@ User.init(
                 len: [5]
             }
         },
-        Title: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        First_name: {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Last_name: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [4]
+            }
         }
     },
     {
@@ -35,4 +42,4 @@ User.init(
     }
 );
 
-module.exports = PO;
+module.exports = User;
