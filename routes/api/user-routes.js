@@ -41,7 +41,22 @@ router.post('/', (req,res) => {
 
 // DELETE/api/users/1
 router.delete('/:empNumber', (req,res) => {
-    
+    User.destroy({
+        where: {
+            empNumber: req.params.empNumber
+        }
+    })
+    .then(dbUserData => {
+        if(!dbUserData){
+            res.status(404).json({message: 'No user found with this empNumber'});
+            return;
+        }
+        res.json(dbUserData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 });
 
 module.exports = router;
