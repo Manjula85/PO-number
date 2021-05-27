@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-//Just doing just the above one for now
+//NO PO ADDTION HERE STILL.....
 
 // POST /api/PO numbers  <-- This is just get the data in
 router.post("/", (req, res) => {

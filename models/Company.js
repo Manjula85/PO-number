@@ -9,6 +9,13 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    po_number_company: {    //which is the id
+      type: DataTypes.STRING,
+      references: {
+        model: 'po',
+        key: 'po_number'
+      }
+    }
   },
   {
     sequelize,
