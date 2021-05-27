@@ -16,7 +16,6 @@ router.get('/',(req,res) => {
 router.post('/', (req,res) => {
     PO.create({
         poNumber: req.body.poNumber,
-        company: req.body.company
     })
     .then(dbPOData => res.json(dbPOData))
     .catch(err => {

@@ -4,6 +4,6 @@ const poRoutes = require('./po-routes');
 const userRoutes = require('./user-routes');
 
 router.use('/po',poRoutes);
-router.use('/user',userRoutes);
+router.use('/users',userRoutes);
 
 module.exports = router;

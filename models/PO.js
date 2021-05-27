@@ -13,11 +13,6 @@ PO.init(
                 len: [5]
             }
         },
-        company: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
-
     },
     {
         sequelize,

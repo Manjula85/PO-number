@@ -27,7 +27,7 @@ router.post('/', (req,res) => {
         empNumber: req.body.empNumber,
         title: req.body.title,
         first_name: req.body.first_name,
-        last_name = req.body.last_name,
+        last_name: req.body.last_name,
         password: req.body.password        
     })
     .then(dbUserData => res.json(dbUserData))
