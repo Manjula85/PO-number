@@ -25,5 +25,7 @@ router.post('/', (req,res) => {
     });
 });
 
+// DELETE /api/po number/1  <-- removed used po numbers <-- useful???
+// Because I can just edit the db, right?
 
 module.exports = router;

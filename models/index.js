@@ -1,3 +1,4 @@
 const PO = require('./PO');
+const PO = require('./User');
 
-module.exports = { PO };
+module.exports = { PO, User };
