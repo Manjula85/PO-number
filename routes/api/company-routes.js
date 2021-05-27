@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { PO } = require("../../models");
+const { Company } = require("../../models");
 
-// GET /api/PO numbers
+// GET /api/PO numbers  <-- maybe I can set up like a quick find (like in other sites)
 router.get("/", (req, res) => {
-  PO.findAll()
+  Company.findAll()
     .then((dbPOData) => res.json(dbPOData))
     .catch((err) => {
       console.log(err);
@@ -12,10 +12,10 @@ router.get("/", (req, res) => {
 });
 //Just doing just the above one for now
 
-// POST /api/PO numbers  <-- This is just get the data in
+// POST /api/PO numbers  <-- To get the data in when the use inputs it
 router.post("/", (req, res) => {
-  PO.create({
-    po_number: req.body.po_number,
+  Company.create({
+    Company: req.body.po_number,
   })
     .then((dbPOData) => res.json(dbPOData))
     .catch((err) => {
@@ -23,8 +23,5 @@ router.post("/", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// DELETE /api/po number/1  <-- removed used po numbers <-- useful???
-// Because I can just edit the db, right?
 
 module.exports = router;

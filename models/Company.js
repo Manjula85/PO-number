@@ -1,17 +1,13 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class PO extends Model {}
+class Company extends Model {}
 
-PO.init(
+Company.init(
   {
-    po_number: {
-      type: DataTypes.INTEGER,
+    company_name: {
+      type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
-      validate: {
-        len: [5],
-      },
     },
   },
   {
@@ -19,8 +15,8 @@ PO.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "po",
+    modelName: "company",
   }
 );
 
-module.exports = PO;
+module.exports = Company;
