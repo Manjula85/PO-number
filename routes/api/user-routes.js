@@ -1,25 +1,14 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-// GET/api/users/1
-router.get("/:emp_number", (req, res) => {
-  User.findOne({
-    where: {
-        emp_number: req.params.emp_number,
-    },
-    attributes: { exclude: ["password"] },
-  })
-    .then((dbUserData) => {
-      if (!dbuserData) {
-        res.status(404).json({ message: "No user found with this empNumnber" });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+//GET all users <-- just needed for the testing phase
+router.get("/", (req,res) => {
+  User.findAll()
+  .then((dbUserData) => res.json(dbUserData))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // POST/api/users
@@ -32,6 +21,34 @@ router.post("/", (req, res) => {
     password: req.body.password,
   })
     .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+//login
+router.post("/login", (req, res) => {
+  User.findOne({
+    where: {
+      emp_number: req.body.emp_number,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(400).json({ message: "No user found with this empNumnber" });
+        return;
+      }
+
+      const validPassword = dbUserData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+        res.status(400).json({ message: "incorrect password!" });
+        return;
+      }
+
+      res.json({ user: dbUserData, message: "You are now logged in!" });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
