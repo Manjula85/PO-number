@@ -3,7 +3,10 @@ const { Company } = require("../../models");
 
 // GET /api/PO numbers  <-- maybe I can set up like a quick find (like in other sites)
 router.get("/", (req, res) => {
-  Company.findAll()
+  Company.findAll({
+    attributes: ["company_name", "po_number"],
+    order: [["po_number", "DESC"]],
+  })
     .then((dbPOData) => res.json(dbPOData))
     .catch((err) => {
       console.log(err);
