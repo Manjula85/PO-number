@@ -9,8 +9,8 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    po_number_company: {    //which is the id
-      type: DataTypes.STRING,
+    po_number: {    //which is the id
+      type: DataTypes.INTEGER,
       references: {
         model: 'po',
         key: 'po_number'

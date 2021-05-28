@@ -13,13 +13,13 @@ PO.init(
         len: [5],
       },
     },
-    // emp_number: {
-    //   type: DataTypes.STRING,
-    //   references:{
-    //     model: 'po',
-    //     key: 'emp_number'
-    //   }
-    // }
+    emp_number: {
+      type: DataTypes.STRING,
+      references:{
+        model: 'user',
+        key: 'emp_number'
+      }
+    }
   },
   {
     sequelize,
