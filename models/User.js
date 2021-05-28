@@ -35,6 +35,13 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    po_number: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: 'po',
+        key: 'po_number'
+      }
+    }
   },
   {
     hooks: {

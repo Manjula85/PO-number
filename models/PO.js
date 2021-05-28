@@ -12,13 +12,6 @@ PO.init(
       validate: {
         len: [5],
       },
-    },
-    emp_number: {
-      type: DataTypes.STRING,
-      references:{
-        model: 'user',
-        key: 'emp_number'
-      }
     }
   },
   {

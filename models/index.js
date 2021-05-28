@@ -14,12 +14,12 @@ Company.belongsTo(PO, {
 });
 
 // PO and User
-User.hasMany(PO, {
-  foreignKey: "emp_number",
+PO.hasMany(User, {
+  foreignKey: "po_number",
 });
 
-PO.belongsTo(User, {
-  foreignKey: "emp_number",
+User.belongsTo(PO, {
+  foreignKey: "po_number",
 });
 
 module.exports = { PO, User, Company };
