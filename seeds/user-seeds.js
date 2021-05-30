@@ -7,7 +7,6 @@ const userData = [
         first_name: "Manjula",
         last_name: "Guneratne",
         password: "testing",
-        po_number: 12345
     },
     {
         emp_number: "VIC01",
@@ -15,7 +14,6 @@ const userData = [
         first_name: "Vic",
         last_name: "Vicky",
         password: "testing",
-        po_number: 19050
     },
     {
         emp_number: "EDW01",
@@ -23,7 +21,6 @@ const userData = [
         first_name: "Edward",
         last_name: "Ed",
         password: "testing",
-        po_number: 19051
     },
 ];
 
