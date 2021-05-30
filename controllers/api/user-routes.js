@@ -2,13 +2,13 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 //GET all users <-- just needed for the testing phase
-router.get("/", (req,res) => {
+router.get("/", (req, res) => {
   User.findAll()
-  .then((dbUserData) => res.json(dbUserData))
-  .catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // POST/api/users
@@ -20,7 +20,19 @@ router.post("/", (req, res) => {
     last_name: req.body.last_name,
     password: req.body.password,
   })
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbUserData) => {
+      req.session.save(() => {
+        req.session.emp_number = dbUserData.emp_number;
+        req.session.title = dbUserData.title;
+        req.session.first_name = dbUserData.first_name;
+        req.session.last_name = dbUserData.last_name;
+        req.session.password = dbUserData.password;
+        //extra
+        req.session.loggedIn = true; // Do I do this?
+
+        res.json(dbUserData);
+      });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -47,12 +59,31 @@ router.post("/login", (req, res) => {
         return;
       }
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      req.session.save(() => {
+        req.session.emp_number = dbUserData.emp_number;
+        req.session.password = dbUserData.password;
+        //extra
+        req.session.loggedIn = true;
+
+        res.json({ user: dbUserData, message: "You are now logged in!" });
+      });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+//logout
+router.post("/logout", (req, res) => {
+  console.log('LOGOUT');
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 //User update ignored for now

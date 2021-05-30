@@ -6,6 +6,21 @@ const path = require('path');
 // to get handlebars connection
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
+// add the session
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//to store the session secret
+//require('dotenv').config();
+
+const sess = {
+  secret: 'testing testing testing',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+//session connected
+app.use(session(sess));
 
 //turn on routes
 app.use(routes);
