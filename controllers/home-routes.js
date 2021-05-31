@@ -15,8 +15,9 @@ router.get("/", (req, res) => {
     .then((dbPOData) => {
       //pass only a single PO number
       const post = dbPOData[0].get({ plain: true });
+      //const posts = dbPOData.map(post => post.get({ plain: true }));
       //const emp_number = 'Manjula';//req.session.emp_number;
-       res.render("homepage", {
+      res.render("homepage", {
         post,
         loggedIn: req.session.loggedIn,
         emp_number: req.session.emp_number,

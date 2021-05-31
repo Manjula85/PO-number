@@ -25,6 +25,24 @@ router.post("/", (req, res) => {
 });
 
 // DELETE /api/po number/1  <-- removed used po numbers <-- useful???
-// Because I can just edit the db, right?
+router.delete("/:po_number", (req,res) => {
+  PO.destroy({
+    where: {
+      po_number: req.params.po_number,
+    },
+  })
+  .then((dbPOData) => {
+    if(!dbPOData){
+      res.status(404).json({message:"No po found with this id"});
+      return;
+    }
+    res.json(dbPOData);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 
 module.exports = router;
