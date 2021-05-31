@@ -4,13 +4,19 @@
   {{/if}}
 </nav>
 <br />
+<form>
+{{!-- Get user company name --}}
 <div>
-  <lable for="company_name">Enter company name: </lable>
-  <input type="text" id="company_name" />
+  <lable for="company_name_input">Enter company name: </lable>
+  <input type="text" id="company_name_input" required/>
 </div >
+{{!-- Print an error message if no company message --}}
+<p id="error_message"></p>
+<br />
 <lable>PO number: <span id="po_number">xxxxx</span></lable>
 <br />
 <button type="button" class="btn btn-info" onclick=newCompany({{post.po_number}})>Enter</button>
+</form>
 {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   <script src="/javascript/create.js"></script>
