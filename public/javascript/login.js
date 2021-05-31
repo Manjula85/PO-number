@@ -16,7 +16,7 @@ async function loginFormHandler(event){
 
         if(response.ok){
             document.location.replace('/');
-            window.reload();   //This wasn't necessary in  my computer at home
+            window.reload();   //This wasn't necessary in the my computer at home
         } else {
             alert(response.statusText);
         }

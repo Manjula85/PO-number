@@ -15,9 +15,11 @@ router.get("/", (req, res) => {
     .then((dbPOData) => {
       //pass only a single PO number
       const post = dbPOData[0].get({ plain: true });
-      res.render("homepage", {
+      //const emp_number = 'Manjula';//req.session.emp_number;
+       res.render("homepage", {
         post,
-        loggedIn: true
+        loggedIn: req.session.loggedIn,
+        emp_number: req.session.emp_number,
       });
     })
     .catch((err) => {

@@ -7,10 +7,10 @@ Company.init(
   {
     company_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      //allowNull: false,
+      defaultValue: "Guneratne.inc",
     },
     po_number: {
-      //which is the id
       type: DataTypes.INTEGER,
       references: {
         model: "po",

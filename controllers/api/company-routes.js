@@ -4,7 +4,7 @@ const { Company } = require("../../models");
 // GET /api/PO numbers  <-- maybe I can set up like a quick find (like in other sites)
 router.get("/", (req, res) => {
   Company.findAll({
-    attributes: ["company_name", "po_number"],
+    attributes: ["company_name", "po_number", "emp_number"],
     order: [["po_number", "DESC"]],
   })
     .then((dbPOData) => res.json(dbPOData))
@@ -18,7 +18,9 @@ router.get("/", (req, res) => {
 // POST /api/PO numbers  <-- To get the data in when the use inputs it
 router.post("/", (req, res) => {
   Company.create({
-    Company: req.body.po_number,
+    company_name: req.body.company_name,
+    po_number: req.body.po_number,
+    emp_number: req.body.emp_number,
   })
     .then((dbPOData) => res.json(dbPOData))
     .catch((err) => {
