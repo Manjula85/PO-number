@@ -4,8 +4,14 @@
   {{/if}}
 </nav>
 <br />
-<h1>PO number: {{po_number}}</h1>
-<button type="button" class="btn btn-info">Info</button>
+<div>
+  <lable for="company_name">Enter company name: </lable>
+  <input type="text" id="company_name" />
+</div >
+<lable>PO number: <span id="po_number">xxxxx</span></lable>
+<br />
+<button type="button" class="btn btn-info" onclick=newCompany({{post.po_number}})>Enter</button>
 {{#if loggedIn}}
-<script src="/javascript/logout.js"></script>
+  <script src="/javascript/logout.js"></script>
+  <script src="/javascript/create.js"></script>
 {{/if}}
