@@ -1,0 +1,27 @@
+<nav>
+  {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+  {{/if}}
+</nav>
+<br />
+<form></form>
+{{!-- Get user company name --}}
+<div>
+  <lable for="company_name_input">Enter company name: </lable>
+  <input type="text" id="company_name_input" required/>
+</div >
+{{!-- Print an error message if no company message --}}
+<p id="error_message"></p>
+<br />
+<lable>PO number: <span id="po_number">xxxxx</span></lable>
+<br />
+{{!-- Not what I want yet!!! --}}
+<p>The output I want is given: {{emp_number}}</p>
+{{!--  --}}
+<button type="button" class="btn btn-info" onclick=newCompany({{post.po_number}},'GUN01')>Enter</button>
+{{!--  --}}
+</form>
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  <script src="/javascript/create.js"></script>
+{{/if}}

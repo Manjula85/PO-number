@@ -1,34 +1,26 @@
-const {Model, DataTypes} = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class PO extends Model{}
+class PO extends Model {}
 
 PO.init(
-    {
-        poNumber:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            validate:{
-                len: [5]
-            }
-        },
-        company: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate:{
-                len: [1]
-            }
-        }
-
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'po'
+  {
+    po_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      validate: {
+        len: [5],
+      },
     }
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "po",
+  }
 );
 
 module.exports = PO;
