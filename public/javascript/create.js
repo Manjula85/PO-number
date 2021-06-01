@@ -26,23 +26,24 @@ async function storeData(po, company, emp) {
   //But still...
   console.log("Got all the details! ", po_number, company_name, emp_number);
 
+  //needed for the indexedDB to work
+  const poStoredData = {company_name, po_number, emp_number};
+
   if (company_name && po_number && emp_number) {
     const response = await fetch('/api/companies/', {
       method: 'post',
-      body: JSON.stringify({
-        company_name,
-        po_number,
-        emp_number,
-      }),
+      body: JSON.stringify(poStoredData),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
       //remove the used/shown PO# for the list
       removePO(po_number);
-
       //document.location.replace("/");
     } else {
+      //it's saved into the indexedDB database from here
+      saveRecord(poStoredData);
+      
       alert(response.statusText);
     }
   }
