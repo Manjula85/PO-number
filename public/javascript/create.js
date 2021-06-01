@@ -20,7 +20,7 @@ async function removePO(po) {
 
 async function storeData(po, company, emp) {
   var po_number = parseInt(po);
-  var company = company.trim();
+  var company_name = company.trim();
   var emp_number = emp.trim();
 
   //But still...
@@ -30,7 +30,7 @@ async function storeData(po, company, emp) {
     const response = await fetch("/api/companies/", {
       method: "post",
       body: JSON.stringify({
-        company,
+        company_name,
         po_number,
         emp_number,
       }),

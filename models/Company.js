@@ -16,6 +16,7 @@ Company.init(
         model: "po",
         key: "po_number",
       },
+      primaryKey: true,
     },
     emp_number: {
       type: DataTypes.STRING,
