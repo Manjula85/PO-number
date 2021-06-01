@@ -1,8 +1,6 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  console.log('IS this getting printed?');
-
   const emp_number = document.querySelector("#emp_number-signup").value.trim();
   const title = document.querySelector("#title-signup").value.trim();
   const first_name = document.querySelector("#first_name-signup").value.trim();

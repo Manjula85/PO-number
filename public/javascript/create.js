@@ -1,8 +1,7 @@
-//NOT active just yet
 async function removePO(po) {
   var po_number = po;
   const response = await fetch(`/api/po/` + po_number, {
-    method: "destroy",
+    method: "delete",
     body: JSON.stringify({
       po_number,
     }),
@@ -10,18 +9,22 @@ async function removePO(po) {
   });
 
   if (response.ok) {
-    document.location.replace("/");
-    //window.reload();
+    console.log('Deleted PO number is ',po_number);
+    //disabled so no other PO's can be gotten on this login cylce
+    var enterButton = document.querySelector("#enter");
+    //enterButton.disabled = true;  // <-- not working still...
   } else {
     alert(response.statusText);
   }
 }
 
 async function storeData(po, company, emp) {
-  console.log("Got all the details! ", po, company, emp);
   var po_number = parseInt(po);
   var company = company.trim();
   var emp_number = emp.trim();
+
+  //But still...
+  console.log("Got all the details! ", po, company, emp);
 
   if (company && po_number && emp_number) {
     const response = await fetch("/api/companies/", {
@@ -36,22 +39,19 @@ async function storeData(po, company, emp) {
 
     if (response.ok) {
       //remove the used/shown PO# for the list
-      //removePO(po_number);
+      removePO(po_number);
 
-      document.location.replace("/");
+      //document.location.replace("/");
     } else {
       alert(response.statusText);
     }
   }
 }
 
-async function result(number, emp) {
+async function newCompany(number, emp) {
   var spanEl = document.querySelector("#po_number");
   var inputEl = document.querySelector("#company_name_input");
   Company_name = inputEl.value;
-  //disabled so no other PO's can be gotten on this login cylce
-  var enterButton = document.querySelector("#enter");
-  //enterButton.disabled = true;  // <-- not working still...
 
   //Get access to error message display
   var p_error = document.querySelector("#error_message");
@@ -66,13 +66,3 @@ async function result(number, emp) {
     storeData(spanEl.textContent, Company_name, emp);
   }
 }
-
-async function newCompany(number, emp) {
-  
-  
-  //event.preventDefault();   <-- cannot pass event for this to work
-
-  await result(number, emp);
-}
-
-//document.querySelector('#enter').addEventListener('click',newCompany);
