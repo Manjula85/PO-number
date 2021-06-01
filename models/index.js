@@ -4,15 +4,6 @@ const Company = require("./Company");
 
 // create associations
 
-// Company and PO
-PO.hasOne(Company, {
-  foreignKey: "po_number",
-});
-
-Company.belongsTo(PO, {
-  foreignKey: "po_number",
-});
-
 // PO and Company
 PO.hasMany(Company, {
   foreignKey: "emp_number",

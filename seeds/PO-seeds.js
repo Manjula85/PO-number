@@ -2,19 +2,19 @@ const { PO } = require("../models");
 
 const poData = [
   {
-    po_number: 12345,
+    po_number: 13456,
   },
   {
-    po_number: 19050,
+    po_number: 19040,
   },
   {
-    po_number: 19051,
+    po_number: 19041,
   },
   {
-    po_number: 19052,
+    po_number: 19042,
   },
   {
-    po_number: 19053,
+    po_number: 19043,
   },
 ];
 

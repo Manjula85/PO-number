@@ -8,14 +8,12 @@ Company.init(
     company_name: {
       type: DataTypes.STRING,
       //allowNull: false,
+      allowNull: false,
       defaultValue: "Guneratne.inc",
     },
     po_number: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "po",
-        key: "po_number",
-      },
+      allowNull: false,
       primaryKey: true,
     },
     emp_number: {
@@ -24,6 +22,7 @@ Company.init(
         model: "user",
         key: "emp_number",
       },
+      allowNull: false,
     },
   },
   {

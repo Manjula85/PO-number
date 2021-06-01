@@ -9,8 +9,7 @@ const hbs = exphbs.create({});
 // add the session
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-//to store the session secret
-//require('dotenv').config();
+
 
 const sess = {
   secret: 'testing testing testing',

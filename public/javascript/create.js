@@ -1,7 +1,7 @@
 async function removePO(po) {
   var po_number = po;
   const response = await fetch(`/api/po/` + po_number, {
-    method: "delete",
+    method: 'delete',
     body: JSON.stringify({
       po_number,
     }),
@@ -24,11 +24,11 @@ async function storeData(po, company, emp) {
   var emp_number = emp.trim();
 
   //But still...
-  console.log("Got all the details! ", po, company, emp);
+  console.log("Got all the details! ", po_number, company_name, emp_number);
 
-  if (company && po_number && emp_number) {
-    const response = await fetch("/api/companies/", {
-      method: "post",
+  if (company_name && po_number && emp_number) {
+    const response = await fetch('/api/companies/', {
+      method: 'post',
       body: JSON.stringify({
         company_name,
         po_number,
