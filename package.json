@@ -4,6 +4,8 @@
   "description": "To find and and get PO numbers",
   "main": "index.js",
   "scripts": {
+    "webpack": "webpack --watch",
+    "build": "webpack",
     "start": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
@@ -29,6 +31,8 @@
     "sequelize": "^6.6.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
   }
 }
