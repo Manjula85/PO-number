@@ -7,8 +7,12 @@ To provide a PO number on a mobile device to autherized uses.
 * JavaScript
 * Node
 * Express
+* Express-handlebars
+* Express-sessions
 * Mysql2
-* Sequelize
+* dotenv
+* bcrypt
+* connet-session-sequelize
 
 ### Demo
 (not setup yet)
