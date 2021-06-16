@@ -1,6 +1,8 @@
 async function loginFormHandler(event){
     event.preventDefault();
 
+    const ex = document.querySelector('#blink_message');
+
     const emp_number = document.querySelector('#emp_number-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
@@ -18,7 +20,8 @@ async function loginFormHandler(event){
             document.location.replace('/');
             window.reload();   //This wasn't necessary in the my computer at home
         } else {
-            alert(response.statusText);
+            ex.textContent = "Incorrect Employee number or Password";
+            //alert(response.statusText);
         }
     }
 }
