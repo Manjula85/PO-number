@@ -6,32 +6,14 @@ To provide a PO number on a mobile device to autherized uses.
 ## Built with
 * JavaScript
 * Node
-* CSS
-* HTML
+* Express
+* Mysql2
+* Sequelize
 
-## npm 
-* react
-* react-dom
-* react-script
-* web-vitals
-
-### About
-![](/images/about.PNG)
-
-### Portfolio
-
-![](/images/portfolio.PNG)
-
-### Contact
-
-![](/images/contact.PNG)
-
-### Resume
-
-![](/images/resume.PNG)
-
+### Demo
+(not setup yet)
 
 ## Relevant links
-URL: https://manjula85.github.io/CMS-blog-Manjula/
+URL: (not setup yet)
 
-Git hub link: https://github.com/Manjula85/react-portfolio-manjula
+Git hub link: https://github.com/Manjula85/PO-number
