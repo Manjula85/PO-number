@@ -1,17 +1,27 @@
 <form class="login-form" autocomplete="off">
-  <h2>Login</h2>
-  <div>
-    <lable for="emp_number-login">Employee Number: </lable>
-    <input type="text" id="emp_number-login" />
+  <label for="basic-url" class="form-label"></label>
+  <div class="input-group mb-3">
+    <span class="input-group-text bg-primary text-white" id="basic-addon3">Employee number: </span>
+    <input
+      type="text"
+      class="form-contol"
+      id="basic-url"
+      aria-describedby="basic-addon3"
+    />
   </div>
-  <div>
-    <lable for="password-login">Password: </lable>
-    <input type="text" id="password-login" />
+  <div class="input-group mb-3">
+    <span class="input-group-text bg-primary text-white" id="basic-addon3">Password: </span>
+    <input
+      type="text"
+      class="form-contol"
+      id="basic-url"
+      aria-describedby="basic-addon3"
+    />
   </div>
   <br />
-  <p id="blink_message"></p>  
+  <p id="blink_message"></p>
   <div>
-    <button type="submit"> Login </button>
+    <button type="submit" class="btn bg-dark text-white">Submit</button>
   </div>
 </form>
 <script src="/javascript/login.js"></script>

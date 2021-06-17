@@ -11,13 +11,16 @@
       crossorigin="anonymous"
     />
     <link rel="shortcut icon" href="#" />
-    
-    <link rel="manifest" href="dist\manifest.json">
+
+    <link rel="manifest" href="dist\\manifest.json" />
+    <style>
+      .backgr{ border:1px black solid; background-color:#AED6F1;  }
+    </style>
   </head>
-  <body>
-    <div class="container align-middle" style="border:1px black solid;">
+  <body style="width: 30em; margin-left:auto; margin-right:auto;">
+    <div class="container align-middle backgr">
       <header>
-        <h1>Profile PO number</h1>
+        <h1 style="background-color: black; color:white;">Profile PO number</h1>
       </header>
       <main>
         {{{body}}}
@@ -34,12 +37,9 @@
     ></script>
   </body>
   <script>
-    (function() {
-      if("serviceWorker" in navigator){
-        navigator.serviceWorker.register("./service-worker.js")
-        .then(() => console.log("Service Worker registered successfully."))
-        ,catch(error => console.log("Service Worker registration failed: ", error));
-      }
-    })();
+    (function() { if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("./service-worker.js") .then(() =>
+    console.log("Service Worker registered successfully.")) ,catch(error =>
+    console.log("Service Worker registration failed: ", error)); } })();
   </script>
 </html>
