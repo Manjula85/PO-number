@@ -18,7 +18,7 @@ To provide a PO number on a mobile device to autherized uses.
 (not setup yet)
 
 ### Login
-![](/public/img/login.png)
+![](/img/login.PNG)
 
 ## Relevant links
 URL: (not setup yet)
