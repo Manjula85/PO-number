@@ -4,8 +4,10 @@ const bcrypt = require("bcrypt");
 
 class Users extends Model {
   // set up method to run on instance data (per user) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
+  async checkPassword(loginPw) {
+    await bcrypt.compare(loginPw, hash, (error, result) => {
+      return result;
+    });
   }
 }
 
@@ -30,9 +32,11 @@ Users.init(
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
+        let salt = bcrypt.genSaltSync(8)
+        await bcrypt.hash(newUserData.password, salt, (error, hash) => {
+          return hash;
+        });
+      }
     },
     sequelize,
     timestamps: false,
